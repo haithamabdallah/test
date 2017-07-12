@@ -1,0 +1,161 @@
+@font: 'Roboto', sans-serif;
+@darkBack: #202020;
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	font-family: @font;
+}
+
+.la-single-side {
+	float: left;
+	position: relative;
+}
+.la-leftside {
+	background: @darkBack;
+	width: 230px;
+	height: 100%;
+	padding: 10px;
+	padding-top: 50px;
+
+	h5 {
+		color: white;
+		text-align: center;
+	}
+
+	.ui.checkbox {
+		width: 100%;
+
+		.box {
+			&:after {
+				top: 3px;
+    			left: 8px;
+			}
+			&:before {
+				background: transparent;
+				width: 12px;
+				height: 12px;
+				left: 10px;
+				top: initial;
+			}
+		}
+
+		label {
+			color: white;
+			font-size: 12px;
+    		padding-left: 35px;
+    		cursor: pointer;
+			&:after {
+				top: 3px;
+    			left: 8px;
+			}
+			&:before {
+				background: transparent;
+				width: 12px;
+				height: 12px;
+				left: 10px;
+				top: initial;
+			}
+		}
+		
+		.la-item-1,
+		.la-item-2,
+		.la-item-3,
+		.la-item-4,
+		.la-item-5,
+		.la-item-6,
+		.la-item-7,
+		.la-item-8 {
+			 padding: 5px 0 5px 30px;
+		}
+		&:hover,
+    	&:focus {
+			&.la-item-1 { background: #ffb0c3;}
+			&.la-item-2 { background: #ceb0ff;}
+			&.la-item-3 { background: #9ad0f6;}
+			&.la-item-4 { background: #ffe7ab;}
+			&.la-item-5 { background: #a5dfe0;}
+			&.la-item-6 { background: #9ad0f6;}
+			&.la-item-7 { background: #9af6bf;}
+			&.la-item-8 { background: #c5f69a;}
+    	}
+	}
+
+	
+	.ui.checkbox input:checked ~ .box:before,
+	.ui.checkbox input:checked ~ label:before {
+		background: transparent;
+	}
+	
+
+	input[type=checkbox]:checked + label {
+		color: black;
+  		&.la-item-1 { background: #ffb0c3;}
+		&.la-item-2 { background: #ceb0ff;}
+		&.la-item-3 { background: #9ad0f6;}
+		&.la-item-4 { background: #ffe7ab;}
+		&.la-item-5 { background: #a5dfe0;}
+		&.la-item-6 { background: #9ad0f6;}
+		&.la-item-7 { background: #9af6bf;}
+		&.la-item-8 { background: #c5f69a;}
+	} 
+
+	.ui.form .field {
+		margin: 0;
+	}
+}
+
+.la-content {
+	width: ~"calc(100% - 230px)";
+	background: white;
+}
+
+.la-topbar {
+	background: @darkBack;
+	width: 100%;
+	min-height: 35px;
+	line-height: 35px;
+	color: white;
+	padding: 0 15px;
+
+	.ui.secondary.menu .item {
+		color: white;
+		padding: 1px;
+
+		&:hover,
+		&:focus {
+			color: darken(white, 20%);
+		}
+	}
+}
+
+
+.la-charts-content {
+	padding: 60px;
+
+	.la-title {
+		color: #3d484e;
+		font-weight: 100;
+		i {
+			margin-right: 5px;
+		}
+	}
+	canvas{
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+}
+.show,
+.show2 {
+  display: block;
+}
+.hidden,
+.hidden2 {
+  display: none;
+}

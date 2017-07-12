@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Test</title>
+	
+	<!-- Font -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+	<!-- ./Font -->
+	
+	<!-- style -->
+	<link rel="stylesheet" type="text/css" href="css/semantic.css">
+	<link rel="stylesheet" type="text/css" href="css/icon.css">
+	<link rel="stylesheet" type="text/css" href="css/custom.css">
+	<!-- ./style -->
+
+</head>
+<body>
+	
+	<!-- Left Side -->
+	<aside class="la-leftside la-single-side ">
+		<h5>Scenarios to Compare</h5>
+
+		<form class="ui form">
+			<div class="field ">
+			  	<div class="ui checkbox la-item-1">
+			  	 	<input class="la-item-1" type="checkbox" tabindex="0" id="bau" checked>
+			  	 	<label class="la-item-1" for="bau">BAU</label>
+			  	</div>
+			</div>
+
+			<div class="field ">
+			  	<div class="ui checkbox la-item-2">
+			  	 	<input class="la-item-2" type="checkbox" tabindex="1" id="sc1" checked>
+			  	 	<label class="la-item-2" for="sc1">Scenario 01</label>
+			  	</div>
+			</div>
+
+			<div class="field ">
+			  	<div class="ui checkbox la-item-3">
+			  	 	<input class="la-item-3" type="checkbox" tabindex="2" id="pipe" checked>
+			  	 	<label class="la-item-3" for="pipe">Pipe only</label>
+			  	</div>
+			</div>
+
+			<div class="field ">
+			  	<div class="ui checkbox la-item-4">
+			  	 	<input class="la-item-4" type="checkbox" tabindex="3" id="map" checked>
+			  	 	<label class="la-item-4" for="map">Map +50</label>
+			  	</div>
+			</div>
+
+			<div class="field ">
+			  	<div class="ui checkbox la-item-5">
+			  	 	<input class="la-item-5" type="checkbox" tabindex="4" id="rawex">
+			  	 	<label class="la-item-5" for="rawex">Raw Expert +50%</label>
+			  	</div>
+			</div>
+
+			<div class="field ">
+			  	<div class="ui checkbox la-item-6">
+			  	 	<input class="la-item-6" type="checkbox" tabindex="5" id="water">
+			  	 	<label class="la-item-6" for="water">Desalinated Water Only</label>
+			  	</div>
+			</div>
+
+			<div class="field ">
+			  	<div class="ui checkbox la-item-7">
+			  	 	<input class="la-item-7" type="checkbox" tabindex="6" id="windp">
+			  	 	<label class="la-item-7" for="windp">Wind Power</label>
+			  	</div>
+			</div>
+
+			<div class="field ">
+			  	<div class="ui checkbox la-item-8">
+			  	 	<input class="la-item-8" type="checkbox" tabindex="7" id="minig">
+			  	 	<label class="la-item-8" for="minig">Mining 2x</label>
+			  	</div>
+			</div>
+
+		</form>
+
+	</aside>
+	<!-- ./Left Side -->
+
+	<!-- Content -->
+	<main class="la-content la-single-side">
+		
+		<!-- topbar -->
+		<section class="la-topbar">
+		
+			<!-- Menu -->
+			<div class="ui secondary menu">
+			  <a id="la-left-icon" class="item active"><i class="lightning icon"></i></a>
+			  <a id="la-right-icon" class="item"><i class="comments icon"></i></a>
+			</div>
+			<!-- ./Menu -->
+
+		</section>
+		<!-- ./topbar -->
+
+		<section class="la-charts-content">
+			<div class="ui grid">
+			  	<div class="sixteen wide column" id="left-col">
+			  		<!-- title -->
+			  		<h3 class="la-title"><i class="lightning icon"></i> Overall Electricity Consumption</h3>
+			  		<!-- ./title -->
+
+			  		<!-- charts -->
+				    <canvas id="electricity" style="width: 100%; height: 400px; "></canvas>
+					
+					<script>
+
+						function randomNumber(min, max) {
+						    return Math.floor(Math.random() * (1000 - 0));
+						}
+
+						var ITEMS = ["BAU", "Scenario", "Pipe", "Map", "Raw", "Water", "Wind", "Mining"];
+			    		var barChartData = {
+			    		    labels: ["BAU", "Scenario", "Pipe", "Map"],
+			    		    datasets: [{
+			    		        label: 'Dataset 1',
+			    		        backgroundColor: [
+						            'rgba(255, 176, 195, 0.5)',
+						            'rgba(206, 176, 255, 0.5)',
+						            'rgba(154, 208, 246, 0.5)',
+						            'rgba(255, 231, 171, 0.5)',
+						            'rgba(165, 223, 224, 0.5)',
+						            'rgba(154, 208, 246, 0.5)',
+						            'rgba(154, 246, 191, 0.5)',
+						            'rgba(197, 246, 154, 0.5)'
+						        ],
+						        borderColor: [
+						            'rgba(255, 176, 195, 1)',
+						            'rgba(206, 176, 255, 1)',
+						            'rgba(154, 208, 246, 1)',
+						            'rgba(255, 231, 171, 1)',
+						            'rgba(165, 223, 224, 1)',
+						            'rgba(154, 208, 246, 1)',
+						            'rgba(154, 246, 191, 1)',
+						            'rgba(197, 246, 154, 1)'
+						        ],
+			    		        borderWidth: 1,
+			    		        data: [
+			    		            randomNumber(),
+			    		            randomNumber(),
+			    		            randomNumber(),
+			    		            randomNumber(),
+			    		            randomNumber(),
+			    		            randomNumber(),
+			    		            randomNumber(),
+			    		            randomNumber()
+			    		        ]
+			    		    }]
+
+			    		};
+
+				        window.onload = function() {
+				            var ctx = document.getElementById("electricity").getContext("2d");
+				            window.myBar = new Chart(ctx, {
+				                type: 'bar',
+				                data: barChartData,
+				                options: {
+				                    responsive: true,
+				                    legend: {
+				                        display:false,
+				                    }
+				                }
+				            });
+				        };
+
+
+						document.getElementById('bau').addEventListener('click', function() {
+						    
+						    var order = ITEMS[0];
+
+						    if (this.checked) {
+						        
+						        barChartData.labels.push(order);
+						        window.myBar.update();
+
+						    } else {
+
+						    	barChartData.labels.splice(order, 1);
+						    	window.myBar.update();
+
+						    }
+						});
+						document.getElementById('sc1').addEventListener('click', function() {
+						    
+						    var order = ITEMS[1];
+
+						    if (this.checked) {
+
+						        barChartData.labels.push(order);
+						        window.myBar.update();
+
+						    } else {
+
+						    	barChartData.labels.splice(order, 1);
+						    	window.myBar.update();
+
+						    }
+						});
+						document.getElementById('pipe').addEventListener('click', function() {
+						    
+						    var order = ITEMS[2];
+
+						    if (this.checked) {
+
+						        barChartData.labels.push(order);
+						        window.myBar.update();
+
+						    } else {
+
+						    	barChartData.labels.splice(order, 1);
+						    	window.myBar.update();
+
+						    }
+						});
+						document.getElementById('map').addEventListener('click', function() {
+						    
+						    var order = ITEMS[3];
+
+						    if (this.checked) {
+
+						        barChartData.labels.push(order);
+						        window.myBar.update();
+
+						    } else {
+
+						    	barChartData.labels.splice(order, 1);
+						    	window.myBar.update();
+
+						    }
+						});
+						document.getElementById('rawex').addEventListener('click', function() {
+						    
+						    var order = ITEMS[4];
+
+						    if (this.checked) {
+
+						        barChartData.labels.push(order);
+						        window.myBar.update();
+
+						    } else {
+
+						    	barChartData.labels.splice(order, 1);
+						    	window.myBar.update();
+
+						    }
+						});
+						document.getElementById('water').addEventListener('click', function() {
+						    
+						    var order = ITEMS[5];
+
+						    if (this.checked) {
+
+						        barChartData.labels.push(order);
+						        window.myBar.update();
+
+						    } else {
+
+						    	barChartData.labels.splice(order, 1);
+						    	window.myBar.update();
+
+						    }
+						});
+						document.getElementById('windp').addEventListener('click', function() {
+						    
+						    var order = ITEMS[6];
+
+						    if (this.checked) {
+
+						        barChartData.labels.push(order);
+						        window.myBar.update();
+
+						    } else {
+
+						    	barChartData.labels.splice(order, 1);
+						    	window.myBar.update();
+
+						    }
+						});
+						document.getElementById('minig').addEventListener('click', function() {
+						    
+						    var order = ITEMS[7];
+
+						    if (this.checked) {
+
+						        barChartData.labels.push(order);
+						        window.myBar.update();
+
+						    } else {
+
+						    	barChartData.labels.splice(order, 1);
+						    	window.myBar.update();
+
+						    }
+						});
+
+					</script>
+			  		<!-- ./charts -->
+
+			  	</div>
+
+			</div>
+		</section>
+
+	</main>
+	<!-- ./content -->
+
+
+	<!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="js/semantic.min.js"></script>
+	<script src="js/chart.js"></script>
+	<script>
+		$('#la-left-icon').click(function()
+		{   
+		    $("#left-col").toggle();     
+		});
+	</script>
+
+</body>
+</html>
