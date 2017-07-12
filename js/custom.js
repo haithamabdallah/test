@@ -1,4 +1,20 @@
+//Controller
+document.getElementById('bau').addEventListener('click', function() {
+    
+    var order = ITEMS[0];
 
+    if (this.checked) {
+        
+        barChartData.labels.push(order);
+        window.myBar.update();
+
+    } else {
+
+    	barChartData.labels.splice(order, 1);
+    	window.myBar.update();
+
+    }
+});
 document.getElementById('sc1').addEventListener('click', function() {
     
     var order = ITEMS[1];
@@ -111,9 +127,9 @@ document.getElementById('minig').addEventListener('click', function() {
 
     }
 });
+//Controller
 
-
- //DOM loaded 
+ //show/hide
 $('#la-left-icon').click(function()
 {   
     $("#left-col").toggle();     
@@ -122,3 +138,4 @@ $('#la-right-icon').click(function()
 {   
     $("#right-col").toggle();     
 });
+//show/hide

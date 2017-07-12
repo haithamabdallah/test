@@ -99,9 +99,13 @@
 		</section>
 		<!-- ./topbar -->
 
+		<!-- section -->
 		<section class="la-charts-content">
+			<!-- container -->
 			<div class="ui grid">
+			  	<!-- Col Left -->
 			  	<div class="eight wide column show" id="left-col">
+			  		
 			  		<!-- title -->
 			  		<h3 class="la-title"><i class="lightning icon"></i> Overall Electricity Consumption</h3>
 			  		<!-- ./title -->
@@ -111,11 +115,15 @@
 					
 					<script>
 
+						//Random Number Function
 						function randomNumber(min, max) {
 						    return Math.floor(Math.random() * (1000 - 0));
 						}
+						//Random Number Function
 
+						//charts Properties
 						var ITEMS = ["BAU", "Scenario", "Pipe", "Map", "Raw", "Water", "Wind", "Mining"];
+
 			    		var barChartData = {
 			    		    labels: ["BAU", "Scenario", "Pipe", "Map"],
 			    		    datasets: [{
@@ -152,50 +160,12 @@
 			    		            randomNumber()
 			    		        ]
 			    		    }]
-
 			    		};
+			    		//charts Properties
 
-			    		var ITEMS2 = ["BAU", "Scenario", "Pipe", "Map", "Raw", "Water", "Wind", "Mining"];
-			    		var barChartDataAlt = {
-			    		    labels: ["BAU", "Scenario", "Pipe", "Map"],
-			    		    datasets: [{
-			    		        label: 'Dataset 2',
-			    		        backgroundColor: [
-						            'rgba(255, 176, 195, 0.5)',
-						            'rgba(206, 176, 255, 0.5)',
-						            'rgba(154, 208, 246, 0.5)',
-						            'rgba(255, 231, 171, 0.5)',
-						            'rgba(165, 223, 224, 0.5)',
-						            'rgba(154, 208, 246, 0.5)',
-						            'rgba(154, 246, 191, 0.5)',
-						            'rgba(197, 246, 154, 0.5)'
-						        ],
-						        borderColor: [
-						            'rgba(255, 176, 195, 1)',
-						            'rgba(206, 176, 255, 1)',
-						            'rgba(154, 208, 246, 1)',
-						            'rgba(255, 231, 171, 1)',
-						            'rgba(165, 223, 224, 1)',
-						            'rgba(154, 208, 246, 1)',
-						            'rgba(154, 246, 191, 1)',
-						            'rgba(197, 246, 154, 1)'
-						        ],
-			    		        borderWidth: 1,
-			    		        data: [
-			    		            randomNumber(),
-			    		            randomNumber(),
-			    		            randomNumber(),
-			    		            randomNumber(),
-			    		            randomNumber(),
-			    		            randomNumber(),
-			    		            randomNumber(),
-			    		            randomNumber()
-			    		        ]
-			    		    }]
-
-			    		};
-
+			    		//Create Charts
 				        window.onload = function() {
+
 				            var ctx = document.getElementById("electricity").getContext("2d");
 				            window.myBar = new Chart(ctx, {
 				                type: 'bar',
@@ -208,8 +178,8 @@
 				                }
 				            });
 
-				            var ctx = document.getElementById("waterchart").getContext("2d");
-				            window.myBar2 = new Chart(ctx, {
+				            var ctx2 = document.getElementById("waterchart").getContext("2d");
+				            window.myBar = new Chart(ctx2, {
 				                type: 'bar',
 				                data: barChartData,
 				                options: {
@@ -220,72 +190,41 @@
 				                }
 				            });
 				        };
-
-
-						document.getElementById('bau').addEventListener('click', function() {
-						    
-						    var order = ITEMS[0];
-
-						    if (this.checked) {
-						        
-						        barChartData.labels.push(order);
-						        window.myBar.update();
-
-						    } else {
-
-						    	barChartData.labels.splice(order, 1);
-						    	window.myBar.update();
-
-						    }
-						});
-
-				        
-						
+				        //Create Charts
+		
 					</script>
 			  		<!-- ./charts -->
 
 			  	</div>
-  				<div class="eight wide column show2" id="right-col">
+			  	<!-- ./Col Left -->
+
+			  	<!-- Col Right -->
+  				<div class="eight wide column" id="right-col">
+					
 					<!-- title -->
 			  		<h3 class="la-title"><i class="comments icon"></i> Overall Seawater Consumption</h3>
 			  		<!-- ./title -->
 					
 					<!-- charts -->
 			  		<canvas id="waterchart" style="width: 100%; height: 400px; "></canvas>
-
-			  		<script>
-			  			
-						document.getElementById('bau').addEventListener('click', function() {
-						    
-						    var order2 = ITEMS2[0];
-
-						    if (this.checked) {
-						        
-						        barChartDataAlt.labels.push(order2);
-						        window.myBar.update();
-
-						    } else {
-
-						    	barChartDataAlt.labels.splice(order2, 1);
-						    	window.myBar.update();
-
-						    }
-						});
-			  		</script>
 			  		<!-- ./charts -->
+			  		
   				</div>
+  				<!-- ./Col Right -->
 			</div>
+			<!-- ./container -->
 		</section>
-
+		<!-- ./section -->
 	</main>
 	<!-- ./content -->
 
 
-	<!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> -->
+	<!-- js Libiraries -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="js/semantic.min.js"></script>
 	<script src="js/chart.js"></script>
 	<script src="js/custom.js"></script>
+	<!-- ./js Libiraries -->
 
 </body>
 </html>

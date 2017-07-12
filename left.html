@@ -99,9 +99,13 @@
 		</section>
 		<!-- ./topbar -->
 
+		<!-- Section -->
 		<section class="la-charts-content">
+			<!-- container -->
 			<div class="ui grid">
+				<!-- Cols -->
 			  	<div class="sixteen wide column" id="left-col">
+			  		
 			  		<!-- title -->
 			  		<h3 class="la-title"><i class="lightning icon"></i> Overall Electricity Consumption</h3>
 			  		<!-- ./title -->
@@ -111,10 +115,13 @@
 					
 					<script>
 
+						//Random Number Function
 						function randomNumber(min, max) {
 						    return Math.floor(Math.random() * (1000 - 0));
 						}
+						//Random Number Function
 
+						//charts Properties
 						var ITEMS = ["BAU", "Scenario", "Pipe", "Map", "Raw", "Water", "Wind", "Mining"];
 			    		var barChartData = {
 			    		    labels: ["BAU", "Scenario", "Pipe", "Map"],
@@ -152,9 +159,10 @@
 			    		            randomNumber()
 			    		        ]
 			    		    }]
-
 			    		};
+			    		//charts Properties
 
+			    		//Create Charts
 				        window.onload = function() {
 				            var ctx = document.getElementById("electricity").getContext("2d");
 				            window.myBar = new Chart(ctx, {
@@ -168,159 +176,27 @@
 				                }
 				            });
 				        };
-
-
-						document.getElementById('bau').addEventListener('click', function() {
-						    
-						    var order = ITEMS[0];
-
-						    if (this.checked) {
-						        
-						        barChartData.labels.push(order);
-						        window.myBar.update();
-
-						    } else {
-
-						    	barChartData.labels.splice(order, 1);
-						    	window.myBar.update();
-
-						    }
-						});
-						document.getElementById('sc1').addEventListener('click', function() {
-						    
-						    var order = ITEMS[1];
-
-						    if (this.checked) {
-
-						        barChartData.labels.push(order);
-						        window.myBar.update();
-
-						    } else {
-
-						    	barChartData.labels.splice(order, 1);
-						    	window.myBar.update();
-
-						    }
-						});
-						document.getElementById('pipe').addEventListener('click', function() {
-						    
-						    var order = ITEMS[2];
-
-						    if (this.checked) {
-
-						        barChartData.labels.push(order);
-						        window.myBar.update();
-
-						    } else {
-
-						    	barChartData.labels.splice(order, 1);
-						    	window.myBar.update();
-
-						    }
-						});
-						document.getElementById('map').addEventListener('click', function() {
-						    
-						    var order = ITEMS[3];
-
-						    if (this.checked) {
-
-						        barChartData.labels.push(order);
-						        window.myBar.update();
-
-						    } else {
-
-						    	barChartData.labels.splice(order, 1);
-						    	window.myBar.update();
-
-						    }
-						});
-						document.getElementById('rawex').addEventListener('click', function() {
-						    
-						    var order = ITEMS[4];
-
-						    if (this.checked) {
-
-						        barChartData.labels.push(order);
-						        window.myBar.update();
-
-						    } else {
-
-						    	barChartData.labels.splice(order, 1);
-						    	window.myBar.update();
-
-						    }
-						});
-						document.getElementById('water').addEventListener('click', function() {
-						    
-						    var order = ITEMS[5];
-
-						    if (this.checked) {
-
-						        barChartData.labels.push(order);
-						        window.myBar.update();
-
-						    } else {
-
-						    	barChartData.labels.splice(order, 1);
-						    	window.myBar.update();
-
-						    }
-						});
-						document.getElementById('windp').addEventListener('click', function() {
-						    
-						    var order = ITEMS[6];
-
-						    if (this.checked) {
-
-						        barChartData.labels.push(order);
-						        window.myBar.update();
-
-						    } else {
-
-						    	barChartData.labels.splice(order, 1);
-						    	window.myBar.update();
-
-						    }
-						});
-						document.getElementById('minig').addEventListener('click', function() {
-						    
-						    var order = ITEMS[7];
-
-						    if (this.checked) {
-
-						        barChartData.labels.push(order);
-						        window.myBar.update();
-
-						    } else {
-
-						    	barChartData.labels.splice(order, 1);
-						    	window.myBar.update();
-
-						    }
-						});
+				        //Create Charts
 
 					</script>
 			  		<!-- ./charts -->
 
 			  	</div>
-
+				<!-- ./Cols -->
 			</div>
+			<!-- ./container -->
 		</section>
+		<!-- ./Section -->
 
 	</main>
 	<!-- ./content -->
 
-
-	<!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> -->
+	<!-- js Libiraries -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="js/semantic.min.js"></script>
 	<script src="js/chart.js"></script>
-	<script>
-		$('#la-left-icon').click(function()
-		{   
-		    $("#left-col").toggle();     
-		});
-	</script>
+	<script src="js/custom.js"></script>
+	<!-- ./js Libiraries -->
 
 </body>
 </html>
